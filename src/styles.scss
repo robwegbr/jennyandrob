@@ -1,1 +1,63 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+  color: #333;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.view { background-size: cover; height: 100vh; }
+.bg-home { background: url("assets/home.jpg")no-repeat center center; }
+.bg-aboutus { background: url("assets/aboutus.jpg")no-repeat center center;  }
+.bg-wedding { background: url("assets/wedding.jpg")no-repeat center center; }
+.bg-travelguide { background: url("assets/travelguide.jpg")no-repeat center center; }
+
+.primary-color { color: #ffbf8f!important; }
+.white { color: #FFF!important;  }
+.peach { color:#ffbf8f; }
+
+.title { font-family: Great Vibes; font-size: 36px; color: #ffbf8f; }
+
+h1.title { font-family: Great Vibes; font-size: 88px; }
+
+.logo { cursor: pointer;  flex: 1 1 auto; text-align: center; }
+.navbar { background-color: transparent; box-shadow: 0 0px 0px 0px; }
+.top-nav-collapse { background-color: #ffbf8f; box-shadow: 0 3px 4px -1px rgba(0,0,0,.25);  }
+.top-nav-collapse strong { color: #fff; }
+
+.box {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+.content {
+  display: inline-block;
+  text-align: left;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar { background-color: #ffbf8f; box-shadow: 0 3px 4px -1px rgba(0,0,0,.25); }
+}
+
+.iconm { font-size: 26px; color: #ffbf8f; }
+
+/* Forms specifics */
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+
+.ng-pristine:not(form) {
+  border-left: 5px solid #ffbf8f; /* neutral */
+}
+
+div.form-group { text-align: left }
+
+a.linka:link { color: #4285F4; }
+a.linka:visited { color: #4285F4; }
+a.linka:hover { color: #333; }
+a.linka:active { color: #4285F4; }

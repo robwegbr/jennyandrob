@@ -1,0 +1,142 @@
+<div [hidden]="submitted" class="container pt-5 pb-5">
+<form (ngSubmit)="onSubmit()" #rsvpForm="ngForm">  
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <h1>RSVP</h1>
+      <p>Please let us know if you are able to join us!</p>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="firstname">Firstname*</label>
+        <input type="text" class="form-control" id="firstname"
+              required
+              [(ngModel)]="model.firstname" name="firstname"
+              #firstname="ngModel">
+        <div [hidden]="firstname.valid || firstname.pristine"
+              class="alert alert-danger">Firstname is required
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="surname">Surname*</label>
+        <input type="text" class="form-control" id="surname"
+              required
+              [(ngModel)]="model.surname" name="surname"
+              #surname="ngModel">
+        <div [hidden]="surname.valid || surname.pristine"
+              class="alert alert-danger">Surname is required
+        </div>
+      </div>
+    </div>    
+    <div class="col-md-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="email">Email address*</label>
+        <input type="text" class="form-control" id="email"
+              required
+              [(ngModel)]="model.email" name="email"
+              #email="ngModel">
+        <div [hidden]="email.valid || email.pristine"
+              class="alert alert-danger">Email address is required
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="attendance">Your attendance*</label>
+        <select class="form-control"  id="attendance"
+                required
+                [(ngModel)]="model.attendance" name="attendance">
+          <option *ngFor="let att of attendances" [value]="att">{{att}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="dietary">Dietary Restrictions</label>
+        <input type="text"  class="form-control" id="dietary"
+              [(ngModel)]="model.dietary" name="dietary">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="comment">Additional comment</label>
+        <input type="text"  class="form-control" id="comment"
+              [(ngModel)]="model.comment" name="comment">
+      </div>
+    </div>    
+    <div class="col-md-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <button type="submit" class="btn btn-primary" [disabled]="!rsvpForm.form.valid">Submit</button>
+<!--      <button type="button" class="btn btn-info" (click)="newRsvp(); rsvpForm.reset()">Add + 1</button>      
+-->
+    </div>
+    <div class="col-md-3"></div>
+  </div>     
+</form>     
+</div>
+
+
+<div [hidden]="!submitted" class="container pt-5 pb-5">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <h2>You have submitted the following:</h2>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+  <div class="row mt-4 text-left">
+    <div class="col-md-4"></div>
+    <div class="col-md-2"><p>Name:</p></div>
+    <div class="col-md-2"><p>{{ model.firstname }} {{ model.surname }}</p></div>
+    <div class="col-md-4"></div>
+  </div>
+  <div class="row mt-4 text-left">
+    <div class="col-md-4"></div>
+    <div class="col-md-2"><p>Email:</p></div>
+    <div class="col-md-2"><p>{{ model.email }}</p></div>
+    <div class="col-md-4"></div>
+  </div>
+  <div class="row mt-4 text-left">
+    <div class="col-md-4"></div>
+    <div class="col-md-2"><p>Attendance:</p></div>
+    <div class="col-md-2"><p>{{ model.attendance }}</p></div>
+    <div class="col-md-4"></div>
+  </div>
+  <div class="row mt-4 text-left">
+    <div class="col-md-4"></div>
+    <div class="col-md-2"><p>Dietary:</p></div>
+    <div class="col-md-2"><p>{{ model.dietary }}</p></div>
+    <div class="col-md-4"></div>
+  </div>
+  <div class="row mt-4 text-left">
+    <div class="col-md-4"></div>
+    <div class="col-md-2"><p>Comment:</p></div>
+    <div class="col-md-2"><p>{{ model.comment }}</p></div>
+    <div class="col-md-4"></div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <button type="button" class="btn btn-primary" (click)="newRsvp(); rsvpForm.reset(); submitted=false">Add + 1</button>
+    </div>
+    <div class="col-md-4"></div>
+  </div>  
+
+</div>
